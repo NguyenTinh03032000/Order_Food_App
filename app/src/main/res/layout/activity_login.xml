@@ -1,0 +1,87 @@
+<?xml version="1.0" encoding="utf-8"?>
+<LinearLayout
+    xmlns:android="http://schemas.android.com/apk/res/android"
+    xmlns:tools="http://schemas.android.com/tools"
+    android:layout_width="match_parent"
+    android:layout_height="match_parent">
+
+
+    <LinearLayout
+        android:id="@+id/ln_FormLogIn"
+        android:layout_width="match_parent"
+        android:layout_height="match_parent"
+        android:background="#FFFFFF"
+        android:orientation="vertical">
+
+        <TextView
+            android:id="@+id/tv_login_title"
+            android:layout_width="match_parent"
+            android:layout_height="88dp"
+            android:layout_above="@+id/ln_FormLogIn"
+            android:fontFamily="@font/iciel"
+            android:gravity="center"
+            android:text="Đăng nhập"
+            android:textColor="#43A047"
+            android:textSize="50sp"
+            android:textStyle="bold" />
+
+        <ImageView
+            android:layout_width="match_parent"
+            android:layout_height="100dp"
+            android:layout_alignRight="@+id/ln_FormLogIn"
+            android:layout_marginTop="60dp"
+            android:gravity="center"
+            android:src="@drawable/logodangnhap" />
+
+        <EditText
+            android:id="@+id/et_usernameLogin"
+            android:layout_width="348dp"
+            android:layout_height="wrap_content"
+            android:layout_marginLeft="20dp"
+            android:layout_marginBottom="10dp"
+            android:background="#FFFFFF"
+            android:drawableLeft="@drawable/user"
+            android:drawablePadding="10dp"
+            android:hint="Nhập tài khoản"
+            android:maxLines="1"
+            android:padding="8dp"
+            android:text="admin"
+            android:textColor="#43A047"
+            android:textColorHint="#CCCCCC" />
+
+        <EditText
+            android:id="@+id/et_passwordLogin"
+            android:layout_width="348dp"
+            android:layout_height="wrap_content"
+            android:layout_marginLeft="20dp"
+            android:layout_marginBottom="10dp"
+            android:background="#FFFFFF"
+            android:drawableLeft="@drawable/password"
+            android:drawablePadding="10dp"
+            android:hint="Nhập mật khẩu"
+            android:inputType="textPassword"
+            android:maxLines="1"
+            android:padding="8dp"
+            android:text="1234"
+            android:textColor="#43A047"
+            android:textColorHint="#CCCCCC" />
+
+        <Button
+            android:id="@+id/bt_loginLogin"
+            android:layout_width="205dp"
+            android:layout_height="wrap_content"
+            android:layout_marginLeft="100dp"
+            android:layout_marginTop="18dp"
+            android:backgroundTint="#43A047"
+            android:text="Đăng nhập" />
+
+        <Button
+            android:id="@+id/bt_signIn"
+            android:layout_width="205dp"
+            android:layout_height="wrap_content"
+            android:layout_marginLeft="100dp"
+            android:backgroundTint="#43A047"
+            android:text="Đăng ký" />
+
+    </LinearLayout>
+</LinearLayout>
