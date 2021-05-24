@@ -1,0 +1,28 @@
+<?xml version="1.0" encoding="utf-8"?>
+<LinearLayout xmlns:android="http://schemas.android.com/apk/res/android"
+    android:orientation="vertical"
+    android:layout_width="match_parent"
+    android:layout_height="match_parent"
+    android:background="#FFFFFF">
+
+    <EditText
+        android:id="@+id/et_insert_foodtypeName"
+        android:layout_width="match_parent"
+        android:layout_height="wrap_content"
+        android:textColor="#000000"
+        android:background="#FFFFFF"
+        android:textColorHint="#CCCCCC"
+        android:padding="10dp"
+        android:maxLines="1"
+        android:layout_margin="10dp"
+        android:hint="Tên loại món"/>
+
+    <Button
+        android:id="@+id/bt_insertFoodType"
+        android:layout_width="wrap_content"
+        android:layout_height="wrap_content"
+        android:text="Xác nhận"
+        android:backgroundTint="#43A047"
+        android:layout_gravity="center"/>
+
+</LinearLayout>

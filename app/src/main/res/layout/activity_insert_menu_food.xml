@@ -1,0 +1,99 @@
+<?xml version="1.0" encoding="utf-8"?>
+<LinearLayout xmlns:android="http://schemas.android.com/apk/res/android"
+    android:orientation="vertical"
+    android:layout_width="match_parent"
+    android:layout_height="match_parent"
+    android:background="#FFFFFF">
+
+    <TextView
+        android:id="@+id/tv_food_title"
+        android:layout_width="wrap_content"
+        android:layout_height="wrap_content"
+        android:text="Thêm món ăn"
+        android:layout_gravity="center"
+        android:textSize="18sp"
+        android:textStyle="bold"
+        android:textColor="#43A047"
+        android:layout_margin="10dp"/>
+
+    <ImageView
+        android:id="@+id/imgView_food"
+        android:layout_width="match_parent"
+        android:layout_height="190dp"
+        android:src="@drawable/addimage"/>
+
+    <EditText
+        android:id="@+id/et_insert_foodName"
+        android:layout_width="match_parent"
+        android:layout_height="wrap_content"
+        android:background="#FFFFFF"
+        android:layout_margin="10dp"
+        android:padding="10dp"
+        android:hint="Tên món ăn"
+        android:textColor="#000000"
+        android:textColorHint="#CCCCCC"/>
+
+    <EditText
+        android:id="@+id/et_insert_foodPrice"
+        android:layout_width="match_parent"
+        android:layout_height="wrap_content"
+        android:background="#FFFFFF"
+        android:layout_margin="10dp"
+        android:padding="10dp"
+        android:hint="Giá tiền"
+        android:inputType="number"
+        android:textColor="#000000"
+        android:textColorHint="#CCCCCC"/>
+
+    <LinearLayout
+        android:layout_width="match_parent"
+        android:layout_height="wrap_content"
+        android:orientation="horizontal">
+
+        <Spinner
+            android:id="@+id/spin_menuTypeFood"
+            android:layout_width="match_parent"
+            android:layout_height="wrap_content"
+            android:background="#FFFFFF"
+            android:layout_weight="1"
+            android:layout_marginLeft="10dp"
+            android:layout_marginRight="10dp"
+            android:spinnerMode="dropdown">
+        </Spinner>
+
+        <ImageButton
+            android:id="@+id/bt_addTypeFood"
+            android:layout_width="wrap_content"
+            android:layout_height="wrap_content"
+            android:src="@android:drawable/ic_input_add"
+            android:padding="10dp"
+            />
+
+    </LinearLayout>
+
+    <LinearLayout
+        android:layout_width="match_parent"
+        android:layout_height="wrap_content"
+        android:orientation="horizontal">
+
+        <Button
+            android:id="@+id/bt_insertFood"
+            android:layout_width="wrap_content"
+            android:layout_height="wrap_content"
+            android:text="Xác nhận"
+            android:layout_weight="1"
+            android:layout_margin="10dp"
+            android:padding="10dp"
+            android:backgroundTint="#43A047"/>
+
+        <Button
+            android:id="@+id/bt_exitFood"
+            android:layout_width="wrap_content"
+            android:layout_height="wrap_content"
+            android:text="Thoát"
+            android:layout_weight="1"
+            android:layout_margin="10dp"
+            android:padding="10dp"
+            android:backgroundTint="#43A047"/>
+    </LinearLayout>
+</LinearLayout>
