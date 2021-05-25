@@ -19,6 +19,7 @@ public class FoodTypeDAO {
         database = myDatabase.open();
     }
 
+
     public List<FoodTypeDTO> getAllList(){
         List<FoodTypeDTO> list = new ArrayList<FoodTypeDTO>();
         String query = "Select * from " + MyDataBase.TB_FOODTYPE;

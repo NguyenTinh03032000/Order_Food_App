@@ -9,7 +9,11 @@
         android:roundIcon="@mipmap/ic_launcher_round"
         android:supportsRtl="true"
         android:theme="@style/Theme.Order_Food_Master">
-        <activity android:name=".InsertFoodType"></activity>
+        <activity android:name=".FoodQuantityActivity"></activity>
+        <activity
+            android:name=".ListFood"
+            android:label="Món ăn" />
+        <activity android:name=".InsertFoodType" />
         <activity android:name=".InsertMenuFood" />
         <activity
             android:name=".MenuFood"
