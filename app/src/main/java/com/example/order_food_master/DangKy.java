@@ -2,12 +2,14 @@ package com.example.order_food_master;
 
 import androidx.appcompat.app.AppCompatActivity;
 
+import android.graphics.Color;
 import android.os.Bundle;
 import android.view.View;
 import android.widget.Button;
 import android.widget.EditText;
 import android.widget.RadioButton;
 import android.widget.RadioGroup;
+import android.widget.TextView;
 import android.widget.Toast;
 
 import com.example.order_food_master.DAO.EmployeeDAO;
@@ -16,6 +18,7 @@ import com.example.order_food_master.Fragment.DatePickerFragment;
 public class DangKy extends AppCompatActivity implements View.OnClickListener,View.OnFocusChangeListener{
     EditText etUsername, etPassword, etBirthday, etPhoneNumber;
     RadioGroup rgGenre;
+    TextView tv_title;
     RadioButton rdioMale,rdioFemale;
     Button btConfirm, btExit;
     String genre;
@@ -32,6 +35,25 @@ public class DangKy extends AppCompatActivity implements View.OnClickListener,Vi
         firstSignin = getIntent().getIntExtra("firstSignin",0);
 
         idEmploy = getIntent().getIntExtra("T_idEmploy",0);
+
+        if(idEmploy != 0){
+            tv_title.setText("Cập nhật thông tin");
+            EmployeeDTO employeeDTO = employeeDAO.getEmployeeWithID(idEmploy);
+
+            etUsername.setText(employeeDTO.getUsername());
+            etUsername.setEnabled(false);
+            etUsername.setTextColor(Color.GRAY);
+            etPassword.setText(employeeDTO.getPassword());
+            etBirthday.setText(employeeDTO.getBirthday());
+            etPhoneNumber.setText(String.valueOf(employeeDTO.getPhone()));
+            String genre = employeeDTO.getGenre();
+            if(genre.equals("Nam")){
+                rdioMale.setChecked(true);
+            } else if(genre.equals("Nữ")){
+                rdioFemale.setChecked(true);
+            }
+            btConfirm.setText("Xác nhận");
+        }
     }
     private void addControls() {
         etUsername = (EditText) findViewById(R.id.et_userName);
@@ -43,7 +65,7 @@ public class DangKy extends AppCompatActivity implements View.OnClickListener,Vi
         rgGenre = (RadioGroup) findViewById(R.id.rg_Genre);
         btConfirm = (Button) findViewById(R.id.bt_confirm);
         btExit = (Button) findViewById(R.id.bt_exit);
-
+        tv_title=(TextView)findViewById(R.id.tv_login_title) ;
         btConfirm.setOnClickListener( this);
         btExit.setOnClickListener(this);
         etBirthday.setOnFocusChangeListener(this);

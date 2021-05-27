@@ -9,7 +9,13 @@
         android:roundIcon="@mipmap/ic_launcher_round"
         android:supportsRtl="true"
         android:theme="@style/Theme.Order_Food_Master">
-        <activity android:name=".FoodQuantityActivity"></activity>
+        <activity android:name=".Employee">
+
+        </activity>
+        <activity
+            android:name=".UpdateDinTable"
+            android:label="Cập nhật" />
+        <activity android:name=".FoodQuantityActivity" />
         <activity
             android:name=".ListFood"
             android:label="Món ăn" />
@@ -17,23 +23,25 @@
         <activity android:name=".InsertMenuFood" />
         <activity
             android:name=".MenuFood"
-            android:label="Thực đơn">
-            <intent-filter>
-                <action android:name="android.intent.action.MAIN" />
-
-                <category android:name="android.intent.category.LAUNCHER" />
-            </intent-filter>
-        </activity>
+            android:label="Thực đơn"></activity>
         <activity android:name=".InsertDinTable" />
         <activity
             android:name=".DangKy"
             android:label="Đăng ký" />
         <activity
             android:name=".Login"
-            android:label="Đăng nhập" />
+            android:label="Đăng nhập">
+
+        </activity>
         <activity
             android:name=".MainActivity"
-            android:label="Trang chủ" />
+            android:label="Trang chủ">
+            <intent-filter>
+                <action android:name="android.intent.action.MAIN" />
+
+                <category android:name="android.intent.category.LAUNCHER" />
+            </intent-filter>
+        </activity>
     </application>
 
 </manifest>

@@ -10,16 +10,16 @@
         <item
             android:id="@+id/menu_menufood"
             android:title="Thực đơn"
-            android:icon="@drawable/logodangnhap"
-            android:checked="true"/>
+            android:icon="@drawable/logodangnhap" />
         <item
             android:id="@+id/menu_employee"
             android:title="Nhân viên"
-            android:icon="@drawable/user" />
+            android:icon="@drawable/user"
+            android:checked="true"/>
         <item
-            android:id="@+id/menu_AddFood"
+            android:id="@+id/menu_AddEmployee"
             app:showAsAction="always"
-            android:title="Bàn ăn"
-            android:icon="@drawable/logodangnhap" />
+            android:title="Nhân viên"
+            android:icon="@drawable/user" />
     </group>
 </menu>

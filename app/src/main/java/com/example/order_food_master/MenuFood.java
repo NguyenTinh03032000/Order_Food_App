@@ -32,9 +32,7 @@ public class MenuFood extends AppCompatActivity {
     GridView gvMenuFood;
     List<FoodTypeDTO> listFoodType;
     FoodTypeDAO foodTypeDAO;
-    FragmentManager fragmentManager;
     int idTable;
-    SharedPreferences sharedPreferences;
     protected void onCreate(Bundle savedInstanceState) {
         super.onCreate(savedInstanceState);
         setContentView(R.layout.activity_menu_food);
@@ -73,6 +71,18 @@ public class MenuFood extends AppCompatActivity {
             case R.id.menu_AddFood:
                 Intent intent = new Intent(this, InsertMenuFood.class);
                 startActivityForResult(intent,REQUEST_CODE_INSERT);
+                break;
+            case R.id.menu_main:
+                Intent intentMain = new Intent(this, MainActivity.class);
+                startActivity(intentMain);
+                break;
+            case R.id.menu_menufood:
+                Intent intentFood = new Intent(this, MenuFood.class);
+                startActivity(intentFood);
+                break;
+            case R.id.menu_employee:
+                Intent intentEmployee = new Intent(this, Employee.class);
+                startActivity(intentEmployee);
                 break;
         }
         return super.onOptionsItemSelected(item);

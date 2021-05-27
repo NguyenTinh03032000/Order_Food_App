@@ -32,6 +32,17 @@ public class DinTableDAO {
         }
         return list;
     }
+    public boolean setStatusTableById(int id, String status) {
+        ContentValues contentValues = new ContentValues();
+        contentValues.put(MyDataBase.TB_TABLE_STATUS, status);
+        long rs = database.update(MyDataBase.TB_DINTABLE, contentValues, MyDataBase.TB_TABLE_ID
+                + "='" + id + "'", null);
+        if (rs != 0) {
+            return true;
+        } else {
+            return false;
+        }
+    }
     public String getStatusTableById(int id) {
         String status = "";
         String query = "Select * from " + MyDataBase.TB_DINTABLE + " WHERE " +
@@ -55,6 +66,20 @@ public class DinTableDAO {
         } else {
             return false;
         }
+    }
+    public boolean update(int idTable, String name) {
+        ContentValues contentValues = new ContentValues();
+        contentValues.put(MyDataBase.TB_TABLE_NAME, name);
+        long rs = database.update(MyDataBase.TB_DINTABLE, contentValues, MyDataBase.TB_TABLE_ID + " = '" + idTable + "'", null);
+        if (rs != 0)
+            return true;
+        return false;
+    }
+    public boolean delete(int idTable) {
+        long rs = database.delete(MyDataBase.TB_DINTABLE, MyDataBase.TB_TABLE_ID + " = " + idTable, null);
+        if (rs != 0)
+            return true;
+        return false;
     }
 }
 

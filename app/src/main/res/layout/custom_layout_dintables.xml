@@ -17,8 +17,9 @@
         android:id="@+id/img_table"
         android:layout_width="100dp"
         android:layout_height="100dp"
-        android:src="@drawable/table"
-        android:layout_below="@+id/tv_table_name"/>
+        android:layout_below="@+id/tv_table_name"
+        android:layout_marginTop="0dp"
+        android:src="@drawable/table" />
 
     <ImageView
         android:id="@+id/img_table_order"
