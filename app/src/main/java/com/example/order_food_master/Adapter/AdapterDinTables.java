@@ -21,6 +21,7 @@ import com.example.order_food_master.DTO.DinTableDTO;
 import com.example.order_food_master.MainActivity;
 import com.example.order_food_master.DTO.OrdersDTO;
 import com.example.order_food_master.MenuFood;
+import com.example.order_food_master.PaymentActivity;
 import com.example.order_food_master.R;
 import com.example.order_food_master.DAO.OrdersDAO;
 
@@ -42,6 +43,7 @@ public class AdapterDinTables extends BaseAdapter implements View.OnClickListene
         this.context = context;
         this.resource = resource;
         this.objects = objects;
+        ordersDAO = new OrdersDAO(context);
         dinTableDAO = new DinTableDAO(context);
     }
 
@@ -171,9 +173,9 @@ public class AdapterDinTables extends BaseAdapter implements View.OnClickListene
                 context.startActivity(intent);
                 break;
             case R.id.img_payment:
-//                Intent intent = new Intent(context,PaymentActivity.class);
-//                intent.putExtra("T_idTable",idTable);
-//                context.startActivity(intent);
+                Intent intent1 = new Intent(context, PaymentActivity.class);
+                intent1.putExtra("T_idTable",idTable);
+                context.startActivity(intent1);
                 break;
             case R.id.img_hideButton:
                 hideButton(true);

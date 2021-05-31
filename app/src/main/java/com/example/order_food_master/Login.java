@@ -61,9 +61,6 @@ public class Login extends AppCompatActivity implements View.OnClickListener {
         String password = etPassword.getText().toString();
         int idEmploy  = employeeDAO.checkEmployees(username,password);
         if(idEmploy > 0){
-            SharedPreferences sharedPreferences = getSharedPreferences("save_rule", Context.MODE_PRIVATE);
-            SharedPreferences.Editor editor = sharedPreferences.edit();
-            editor.commit();
 
             Intent intent = new Intent(this, MainActivity.class);
             intent.putExtra("T_Username",username);

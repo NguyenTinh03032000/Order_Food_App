@@ -18,6 +18,7 @@ import android.view.View;
 import android.view.ViewGroup;
 import android.widget.AdapterView;
 import android.widget.GridView;
+import android.widget.Toast;
 
 import com.example.order_food_master.DAO.DinTableDAO;
 import com.example.order_food_master.DTO.FoodTypeDTO;
@@ -44,6 +45,12 @@ public class MenuFood extends AppCompatActivity {
         gvMenuFood.setAdapter(adapter);
         adapter.notifyDataSetChanged();
 
+        Intent intent=getIntent();
+        Bundle bundleDataMenu=intent.getBundleExtra("To_DinTable");
+        if(bundleDataMenu != null){
+            idTable = bundleDataMenu.getInt("B_data_idTable");
+        }
+
         gvMenuFood.setOnItemClickListener(new AdapterView.OnItemClickListener() {
             @Override
             public void onItemClick(AdapterView<?> adapterView, View view, int position, long l) {
@@ -53,6 +60,7 @@ public class MenuFood extends AppCompatActivity {
                 bundle.putInt("B_idFoodType",idType);
                 bundle.putInt("B_data_idTable",idTable);
                 intent.putExtra("To_MenuFood",bundle);
+                Toast.makeText(MenuFood.this,""+idTable,Toast.LENGTH_SHORT).show();
                 startActivity(intent);
             }
         });
