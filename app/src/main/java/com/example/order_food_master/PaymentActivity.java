@@ -41,7 +41,6 @@ public class PaymentActivity extends AppCompatActivity  implements View.OnClickL
                 int quantity = (int) listPayment.get(i).getQuantity();
                 sumPay += (quantity*price);
             }
-
             tvSumPay.setText("Tổng tiền"+": \t\t"+sumPay);
         }
     }

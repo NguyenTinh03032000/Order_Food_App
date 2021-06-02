@@ -5,7 +5,9 @@ import androidx.appcompat.app.AppCompatActivity;
 import android.app.Activity;
 import android.content.Intent;
 import android.graphics.Bitmap;
+import android.graphics.BitmapFactory;
 import android.net.Uri;
+import android.os.Build;
 import android.os.Bundle;
 import android.provider.MediaStore;
 import android.util.Log;
@@ -23,8 +25,11 @@ import com.example.order_food_master.DAO.FoodTypeDAO;
 import com.example.order_food_master.DAO.FoodDAO;
 import com.example.order_food_master.Adapter.AdapterFoodType;
 import com.example.order_food_master.DTO.FoodDTO;
+import com.squareup.picasso.Picasso;
 
+import java.io.File;
 import java.io.IOException;
+import java.io.InputStream;
 import java.util.List;
 
 public class InsertMenuFood extends AppCompatActivity implements View.OnClickListener{
@@ -52,11 +57,11 @@ public class InsertMenuFood extends AppCompatActivity implements View.OnClickLis
         if(idFood != 0){
             // update food
             FoodDTO foodDTO = foodDAO.getFoodWithID(idFood);
-
             tvTitle.setText("Cập nhật thông tin");
             etFoodName.setText(foodDTO.getName());
             etFoodPrice.setText(foodDTO.getPrice());
-            imgFood.setImageURI(Uri.parse(foodDTO.getImage()));
+            Uri uri = Uri.parse(foodDTO.getImage());
+            imgFood.setImageURI(uri);//đã fix
             urlImageFood = foodDTO.getImage();
             int idType = foodDTO.getId_foodType();
             for(int i = 0; i<listFoodType.size();i++){
@@ -96,7 +101,6 @@ public class InsertMenuFood extends AppCompatActivity implements View.OnClickLis
         int id = view.getId();
         switch (id){
             case R.id.bt_addTypeFood:
-                Toast.makeText(this,"Haha",Toast.LENGTH_SHORT).show();
                 Intent intent = new Intent(InsertMenuFood.this,InsertFoodType.class);
                 startActivityForResult(intent,REQUESTCODE_INSERT_FOODTYPE);
                 break;
@@ -113,10 +117,17 @@ public class InsertMenuFood extends AppCompatActivity implements View.OnClickLis
                 finish();
                 break;
             case R.id.imgView_food:
-                Intent intentImg = new Intent();
-                intentImg.setType("image/*");
-                intentImg.setAction(Intent.ACTION_GET_CONTENT);
-                startActivityForResult(Intent.createChooser(intentImg,"Chọn hình ảnh"),REQUESTCODE_INSERT_IMAGEFOOD);
+                if(Build.VERSION.SDK_INT<19){
+                    Intent intentImg = new Intent();
+                    intentImg.setType("image/*");
+                    intentImg.setAction(Intent.ACTION_GET_CONTENT);
+                    startActivityForResult(Intent.createChooser(intentImg,"Chọn hình ảnh"),REQUESTCODE_INSERT_IMAGEFOOD);
+                }else{
+                    Intent intentImg = new Intent();
+                    intentImg.setType("image/*");
+                    intentImg.setAction(Intent.ACTION_OPEN_DOCUMENT);
+                    startActivityForResult(Intent.createChooser(intentImg,"Chọn hình ảnh"),REQUESTCODE_INSERT_IMAGEFOOD);
+                }
                 break;
         }
     }
@@ -182,16 +193,9 @@ public class InsertMenuFood extends AppCompatActivity implements View.OnClickLis
             }
         } else if(requestCode == REQUESTCODE_INSERT_IMAGEFOOD){
             if(resultCode == Activity.RESULT_OK && data != null){
-//                urlImageFood = data.getData().toString();
-//                imgFood.setImageURI(data.getData());
-//                Log.d("Path image",data.getData() + "");
-                // other way
-                try {
-                    Bitmap bitmap = MediaStore.Images.Media.getBitmap(getContentResolver(),data.getData());
-                    imgFood.setImageBitmap(bitmap);
-                } catch (IOException e) {
-                    e.printStackTrace();
-                }
+                urlImageFood = data.getData().toString();
+                imgFood.setImageURI(data.getData());
+                Log.d("Path image là:",data.getData() + "");
             }
         }
     }

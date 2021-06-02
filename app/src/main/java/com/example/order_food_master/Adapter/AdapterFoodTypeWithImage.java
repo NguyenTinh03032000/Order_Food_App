@@ -1,6 +1,8 @@
 package com.example.order_food_master.Adapter;
 
 import android.content.Context;
+import android.graphics.Bitmap;
+import android.graphics.BitmapFactory;
 import android.net.Uri;
 import android.view.LayoutInflater;
 import android.view.View;
@@ -12,8 +14,13 @@ import android.widget.Toast;
 
 import com.example.order_food_master.DAO.FoodTypeDAO;
 import com.example.order_food_master.DTO.FoodTypeDTO;
+import com.example.order_food_master.MenuFood;
 import com.example.order_food_master.R;
+import com.squareup.picasso.Picasso;
 
+import java.io.File;
+import java.io.IOException;
+import java.io.InputStream;
 import java.util.List;
 
 
@@ -71,7 +78,7 @@ public class AdapterFoodTypeWithImage extends BaseAdapter {
         int foodTypeID = foodTypeDTO.getId();
         String image = foodTypeDAO.getListImageFoodType(foodTypeID);
         Uri uri = Uri.parse(image);
-        holderFoodType.imgFoodType.setImageURI(uri);
+        holderFoodType.imgFoodType.setImageURI(uri);//đã fix
         holderFoodType.tvName.setText(foodTypeDTO.getName());
 
         return view;

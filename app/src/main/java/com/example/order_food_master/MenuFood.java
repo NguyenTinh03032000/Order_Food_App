@@ -60,7 +60,6 @@ public class MenuFood extends AppCompatActivity {
                 bundle.putInt("B_idFoodType",idType);
                 bundle.putInt("B_data_idTable",idTable);
                 intent.putExtra("To_MenuFood",bundle);
-                Toast.makeText(MenuFood.this,""+idTable,Toast.LENGTH_SHORT).show();
                 startActivity(intent);
             }
         });
