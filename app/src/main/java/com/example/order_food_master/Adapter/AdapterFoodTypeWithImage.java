@@ -78,7 +78,8 @@ public class AdapterFoodTypeWithImage extends BaseAdapter {
         int foodTypeID = foodTypeDTO.getId();
         String image = foodTypeDAO.getListImageFoodType(foodTypeID);
         Uri uri = Uri.parse(image);
-        holderFoodType.imgFoodType.setImageURI(uri);//đã fix
+        //holderFoodType.imgFoodType.setImageURI(uri);//đã fix
+        Picasso.get().load(uri).into(holderFoodType.imgFoodType);
         holderFoodType.tvName.setText(foodTypeDTO.getName());
 
         return view;

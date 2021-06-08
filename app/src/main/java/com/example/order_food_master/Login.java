@@ -69,7 +69,6 @@ public class Login extends AppCompatActivity implements View.OnClickListener {
         } else{
             Toast.makeText(this, "Đăng nhập không thành công!", Toast.LENGTH_SHORT).show();
         }
-
     }
 
     @Override
