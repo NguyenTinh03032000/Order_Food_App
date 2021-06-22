@@ -29,6 +29,7 @@ public class DangKy extends AppCompatActivity implements View.OnClickListener,Vi
     protected void onCreate(Bundle savedInstanceState) {
         super.onCreate(savedInstanceState);
         setContentView(R.layout.activity_dang_ky);
+        (DangKy.this).getSupportActionBar().setTitle("Đăng ký");
         employeeDAO = new EmployeeDAO(this);
         addControls();
 

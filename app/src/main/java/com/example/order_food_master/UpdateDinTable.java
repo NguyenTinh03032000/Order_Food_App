@@ -21,7 +21,7 @@ public class UpdateDinTable extends AppCompatActivity implements View.OnClickLis
     protected void onCreate(Bundle savedInstanceState) {
         super.onCreate(savedInstanceState);
         setContentView(R.layout.activity_update_din_table);
-
+        (UpdateDinTable.this).getSupportActionBar().setTitle("Cập nhật");
         addControls();
         idTable = getIntent().getIntExtra("T_idTable",0);
     }

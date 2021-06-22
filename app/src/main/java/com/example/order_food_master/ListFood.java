@@ -27,7 +27,7 @@ public class ListFood extends AppCompatActivity {
     protected void onCreate(Bundle savedInstanceState) {
         super.onCreate(savedInstanceState);
         setContentView(R.layout.activity_list_food);
-
+        (ListFood.this).getSupportActionBar().setTitle("Món ăn");
         gvListFood = (GridView)findViewById(R.id.gv_menuFood);
         foodDAO = new FoodDAO(this);
 

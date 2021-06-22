@@ -37,6 +37,7 @@ public class MenuFood extends AppCompatActivity {
     protected void onCreate(Bundle savedInstanceState) {
         super.onCreate(savedInstanceState);
         setContentView(R.layout.activity_menu_food);
+        (MenuFood.this).getSupportActionBar().setTitle("Thực đơn");
         foodTypeDAO = new FoodTypeDAO(this);
         listFoodType = foodTypeDAO.getAllList();
         gvMenuFood = (GridView) findViewById(R.id.gv_menuFood);

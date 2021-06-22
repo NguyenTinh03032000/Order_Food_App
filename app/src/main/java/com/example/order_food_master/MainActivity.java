@@ -31,6 +31,7 @@ public class MainActivity extends AppCompatActivity {
     protected void onCreate(Bundle savedInstanceState) {
         super.onCreate(savedInstanceState);
         setContentView(R.layout.activity_main);
+        (MainActivity.this).getSupportActionBar().setTitle("Trang chủ");
         gvDinTables = (GridView) findViewById(R.id.GvTable);
         dinTableDAO = new DinTableDAO(this);//các thao tác với table
         showListDinTable();
@@ -96,6 +97,10 @@ public class MainActivity extends AppCompatActivity {
             case R.id.menu_employee:
                 Intent intentEmployee = new Intent(this, Employee.class);
                 startActivity(intentEmployee);
+                break;
+            case R.id.menu_map:
+                Intent intentMap = new Intent(this, Map.class);
+                startActivity(intentMap);
                 break;
         }
         return super.onOptionsItemSelected(item);

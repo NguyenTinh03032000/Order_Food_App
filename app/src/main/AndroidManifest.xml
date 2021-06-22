@@ -1,9 +1,11 @@
 <?xml version="1.0" encoding="utf-8"?>
 <manifest xmlns:android="http://schemas.android.com/apk/res/android"
     package="com.example.order_food_master">
-    <uses-permission android:name="android.permission.READ_EXTERNAL_STORAGE"/>
-    <uses-permission android:name="android.permission.WRITE_EXTERNAL_STORAGE"/>
-    <uses-permission android:name="android.permission.MANAGE_DOCUMENTS "/>
+    <uses-permission android:name="android.permission.INTERNET"/>
+    <uses-permission android:name="android.permission.READ_EXTERNAL_STORAGE" />
+    <uses-permission android:name="android.permission.WRITE_EXTERNAL_STORAGE" />
+    <uses-permission android:name="android.permission.MANAGE_DOCUMENTS " />
+
     <application
         android:allowBackup="true"
         android:icon="@mipmap/ic_launcher"
@@ -11,36 +13,27 @@
         android:roundIcon="@mipmap/ic_launcher_round"
         android:supportsRtl="true"
         android:theme="@style/Theme.Order_Food_Master">
-        <activity android:name=".PaymentActivity"></activity>
-        <activity android:name=".Employee"></activity>
-        <activity
-            android:name=".UpdateDinTable"
-            android:label="Cập nhật" />
+        <meta-data
+            android:name="com.google.android.geo.API_KEY"
+            android:value="@string/map_api_key" />
+        <activity android:name=".Map" />
+        <activity android:name=".PaymentActivity"/>
+        <activity android:name=".Employee" />
+        <activity android:name=".UpdateDinTable" />
         <activity android:name=".FoodQuantityActivity" />
-        <activity
-            android:name=".ListFood"
-            android:label="Món ăn" />
+        <activity android:name=".ListFood" />
         <activity android:name=".InsertFoodType" />
         <activity android:name=".InsertMenuFood" />
-        <activity
-            android:name=".MenuFood"
-            android:label="Thực đơn" />
+        <activity android:name=".MenuFood"/>
         <activity android:name=".InsertDinTable" />
-        <activity
-            android:name=".DangKy"
-            android:label="Đăng ký" />
-        <activity
-            android:name=".Login"
-            android:label="Đăng nhập">
+        <activity android:name=".DangKy"/>
+        <activity android:name=".MainActivity" />
+        <activity android:name=".Login">
             <intent-filter>
                 <action android:name="android.intent.action.MAIN" />
-
                 <category android:name="android.intent.category.LAUNCHER" />
             </intent-filter>
         </activity>
-        <activity
-            android:name=".MainActivity"
-            android:label="Trang chủ"></activity>
     </application>
 
 </manifest>

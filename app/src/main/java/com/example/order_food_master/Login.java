@@ -23,6 +23,7 @@ public class Login extends AppCompatActivity implements View.OnClickListener {
     protected void onCreate(Bundle savedInstanceState) {
         super.onCreate(savedInstanceState);
         setContentView(R.layout.activity_login);
+        (Login.this).getSupportActionBar().setTitle("Đăng nhập");
         addControls();
     }
     private void addControls() {

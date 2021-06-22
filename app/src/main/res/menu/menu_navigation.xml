@@ -17,6 +17,11 @@
             android:title="Nhân viên"
             android:icon="@drawable/user" />
         <item
+            android:id="@+id/menu_map"
+            app:showAsAction="always"
+            android:title="Vị trí"
+            android:icon="@drawable/map2" />
+        <item
             android:id="@+id/menu_AdddinTable"
             app:showAsAction="always"
             android:title="Bàn ăn"

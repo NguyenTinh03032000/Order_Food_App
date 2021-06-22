@@ -31,6 +31,7 @@ public class PaymentActivity extends AppCompatActivity  implements View.OnClickL
     protected void onCreate(Bundle savedInstanceState) {
         super.onCreate(savedInstanceState);
         setContentView(R.layout.activity_payment);
+        (PaymentActivity.this).getSupportActionBar().setTitle("Thanh toán");
         addControls();
 
         idTable = getIntent().getIntExtra("T_idTable",0);

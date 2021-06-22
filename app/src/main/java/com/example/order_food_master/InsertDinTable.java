@@ -22,7 +22,7 @@ public class InsertDinTable extends AppCompatActivity implements View.OnClickLis
     protected void onCreate(@Nullable Bundle savedInstanceState) {
         super.onCreate(savedInstanceState);
         setContentView(R.layout.layout_insert_dinningtable);
-
+        (InsertDinTable.this).getSupportActionBar().setTitle("Thêm bàn");
         addControls();
     }
 

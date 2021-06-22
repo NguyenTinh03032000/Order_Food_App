@@ -1,3 +1,4 @@
 <resources>
     <string name="app_name">Order_Food_Master</string>
+    <string name="map_api_key">AIzaSyC1tkJz5jgBFqQ-4xjqtftXHkpcGaoX9a0</string>
 </resources>
