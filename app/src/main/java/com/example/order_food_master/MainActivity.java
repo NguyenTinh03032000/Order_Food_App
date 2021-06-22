@@ -32,12 +32,12 @@ public class MainActivity extends AppCompatActivity {
         super.onCreate(savedInstanceState);
         setContentView(R.layout.activity_main);
         gvDinTables = (GridView) findViewById(R.id.GvTable);
-        dinTableDAO = new DinTableDAO(this);
+        dinTableDAO = new DinTableDAO(this);//các thao tác với table
         showListDinTable();
         registerForContextMenu(gvDinTables);
     }
     private void showListDinTable() {
-        listDinTable = dinTableDAO.getAllList();
+        listDinTable = dinTableDAO.getAllList();//lấy ds table
         adapter = new AdapterDinTables(MainActivity.this, R.layout.custom_layout_dintables,listDinTable);//có show button
         gvDinTables.setAdapter(adapter);
         adapter.notifyDataSetChanged();
