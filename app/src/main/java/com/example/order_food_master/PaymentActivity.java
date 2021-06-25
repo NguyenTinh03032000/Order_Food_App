@@ -46,7 +46,7 @@ public class PaymentActivity extends AppCompatActivity  implements View.OnClickL
         }
     }
     public void setUpGridView(){
-        idOrder = (int) ordersDAO.getIdOrderByIdTable(idTable,"false");
+        idOrder = (int) ordersDAO.getIdOrderByIdTable(idTable,"false");//lấy idOrder qua idTable và trạng thái chưa thanh toán
         listPayment = ordersDAO.getListFoodOrderWithTable(idOrder);
         adapter = new AdapterPayment(this,R.layout.custom_layout_payment,listPayment);
         gvPayment.setAdapter(adapter);

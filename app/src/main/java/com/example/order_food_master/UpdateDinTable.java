@@ -28,22 +28,20 @@ public class UpdateDinTable extends AppCompatActivity implements View.OnClickLis
     private void addControls() {
         etTableName = (EditText) findViewById(R.id.et_update_tableName);
         btUpdate = (Button) findViewById(R.id.bt_updateDinTable);
-
         dinTableDAO = new DinTableDAO(this);
-
         btUpdate.setOnClickListener(this);
     }
     @Override
     public void onClick(View view) {
         String name = etTableName.getText().toString();
-        if(name.trim().equals("") || name.trim() != null){
+        if(name.trim().equals("") || name.trim() == null){
+            Toast.makeText(this,"Vui lòng nhập dữ liệu", Toast.LENGTH_SHORT).show();
+        } else{
             boolean rs = dinTableDAO.update(idTable,name);
             Intent intent = new Intent();
             intent.putExtra("Result_updateTable",rs);
             setResult(Activity.RESULT_OK,intent);
             finish();
-        } else{
-            Toast.makeText(this,"Vui lòng nhập dữ liệu", Toast.LENGTH_SHORT).show();
         }
     }
 }

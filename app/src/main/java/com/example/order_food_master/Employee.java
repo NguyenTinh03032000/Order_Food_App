@@ -31,7 +31,6 @@ public class Employee extends AppCompatActivity {
     protected void onCreate(Bundle savedInstanceState) {
         super.onCreate(savedInstanceState);
         setContentView(R.layout.activity_employee);
-
         lvEmployee = (ListView)findViewById(R.id.lv_employee);
         ((Employee)this).getSupportActionBar().setTitle("Nhân viên");
         employeeDAO = new EmployeeDAO(this);

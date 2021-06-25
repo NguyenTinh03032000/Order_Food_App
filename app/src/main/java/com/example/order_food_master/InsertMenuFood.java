@@ -44,6 +44,7 @@ public class InsertMenuFood extends AppCompatActivity implements View.OnClickLis
     protected void onCreate(Bundle savedInstanceState) {
         super.onCreate(savedInstanceState);
         setContentView(R.layout.activity_insert_menu_food);
+        (InsertMenuFood.this).getSupportActionBar().setTitle("Món ăn");
         addControls();
         idFood = getIntent().getIntExtra("T_idFood",0);
 

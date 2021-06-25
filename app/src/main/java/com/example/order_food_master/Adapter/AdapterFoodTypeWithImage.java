@@ -65,10 +65,8 @@ public class AdapterFoodTypeWithImage extends BaseAdapter {
             holderFoodType = new ViewHolderFoodType();
             LayoutInflater inflater = (LayoutInflater) context.getSystemService(Context.LAYOUT_INFLATER_SERVICE);
             view = inflater.inflate(resources,viewGroup,false);
-
             holderFoodType.imgFoodType = (ImageView) view.findViewById(R.id.img_showFood);
             holderFoodType.tvName = (TextView) view.findViewById(R.id.tv_foodName);
-
             view.setTag(holderFoodType);
         } else{
             holderFoodType = (ViewHolderFoodType) view.getTag();

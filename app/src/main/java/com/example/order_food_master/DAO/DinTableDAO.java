@@ -22,13 +22,13 @@ public class DinTableDAO {
         List<DinTableDTO> list = new ArrayList<>();
         String query = "Select * from " + MyDataBase.TB_DINTABLE;
         Cursor cursor = database.rawQuery(query, null);
-        cursor.moveToFirst();
-        while (!cursor.isAfterLast()) {
+        cursor.moveToFirst();//đưa con trỏ đến hàng đầu tiên
+        while (!cursor.isAfterLast()) {     //Trả về liệu con trỏ có đang trỏ đến vị trí sau hàng cuối cùng hay không
             DinTableDTO dto = new DinTableDTO();
             dto.setId(cursor.getInt(0));
             dto.setName(cursor.getString(1));
             list.add(dto);
-            cursor.moveToNext();
+            cursor.moveToNext();  //Di chuyển con trỏ đến hàng tiếp theo.
         }
         return list;
     }

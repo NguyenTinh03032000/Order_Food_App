@@ -48,7 +48,7 @@ public class OrdersDAO {
 
     public boolean updateStatusOrderWithTable(int idTable,String status){
         ContentValues contentValues = new ContentValues();
-        contentValues.put(MyDataBase.TB_ORDER_STATUS,"status");
+        contentValues.put(MyDataBase.TB_ORDER_STATUS,status);
 
         long rs = database.update(MyDataBase.TB_ORDER,contentValues, MyDataBase.TB_ORDER_TABLEID + " = '" + idTable
                 + "'",null);

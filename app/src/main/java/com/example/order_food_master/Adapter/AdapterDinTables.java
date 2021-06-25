@@ -13,8 +13,6 @@ import android.widget.ImageView;
 import android.widget.TextView;
 import android.widget.Toast;
 
-import androidx.fragment.app.FragmentManager;
-import androidx.fragment.app.FragmentTransaction;
 
 import com.example.order_food_master.DAO.DinTableDAO;
 import com.example.order_food_master.DTO.DinTableDTO;
@@ -66,27 +64,25 @@ public class AdapterDinTables extends BaseAdapter implements View.OnClickListene
     public View getView(int position, View convertView, ViewGroup viewGroup) {
         View view = convertView;
         if(view == null) {
-            LayoutInflater inflater = (LayoutInflater) context.getSystemService(Context.LAYOUT_INFLATER_SERVICE);
+            LayoutInflater inflater = (LayoutInflater)context.getSystemService(Context.LAYOUT_INFLATER_SERVICE);
             holderDinTable = new ViewHolderDinTable();
             // attach custom layout to view
             view = inflater.inflate(R.layout.custom_layout_dintables,viewGroup,false);
-            holderDinTable.imgTable = (ImageView) view.findViewById(R.id.img_table);
-            holderDinTable.imgOrder = (ImageView) view.findViewById(R.id.img_table_order);
-            holderDinTable.imgPayment = (ImageView) view.findViewById(R.id.img_payment);
-            holderDinTable.imgHideButton = (ImageView) view.findViewById(R.id.img_hideButton);
-            holderDinTable.tvTableName = (TextView) view.findViewById(R.id.tv_table_name);
+            holderDinTable.imgTable = view.findViewById(R.id.img_table);
+            holderDinTable.imgOrder = view.findViewById(R.id.img_table_order);
+            holderDinTable.imgPayment = view.findViewById(R.id.img_payment);
+            holderDinTable.imgHideButton =  view.findViewById(R.id.img_hideButton);
+            holderDinTable.tvTableName = view.findViewById(R.id.tv_table_name);
 
             view.setTag(holderDinTable);
         } else {
             holderDinTable = (ViewHolderDinTable) view.getTag();
         }
-
-        if(objects.get(position).isChoose()){
-            showButton();
-        } else{
-            hideButton(false);
-        }
-
+//        if(objects.get(position).isChoose()){
+//            showButton();
+//        } else{
+//            hideButton(false);
+//        }
         DinTableDTO dto = objects.get(position);
         String statusTable = dinTableDAO.getStatusTableById(dto.getId());
         if(statusTable.equals("true")){
@@ -96,12 +92,10 @@ public class AdapterDinTables extends BaseAdapter implements View.OnClickListene
         }
         holderDinTable.tvTableName.setText(dto.getName());
         holderDinTable.imgTable.setTag(position);
-
         holderDinTable.imgTable.setOnClickListener(this);
         holderDinTable.imgOrder.setOnClickListener(this);
         holderDinTable.imgPayment.setOnClickListener(this);
         holderDinTable.imgHideButton.setOnClickListener(this);
-
         return view;
     }
 
@@ -109,7 +103,7 @@ public class AdapterDinTables extends BaseAdapter implements View.OnClickListene
         ImageView imgTable, imgOrder, imgPayment, imgHideButton;
         TextView tvTableName;
     }
-    private void showButton(){
+    private void showButton(){ //hien thị các nút khi click vào từng bàn
         holderDinTable.imgOrder.setVisibility(View.VISIBLE);
         holderDinTable.imgPayment.setVisibility(View.VISIBLE);
         holderDinTable.imgHideButton.setVisibility(View.VISIBLE);
@@ -120,7 +114,7 @@ public class AdapterDinTables extends BaseAdapter implements View.OnClickListene
         holderDinTable.imgHideButton.startAnimation(animation);
     }
 
-    private void hideButton(boolean effect){
+    private void hideButton(boolean effect){ //ẩn các nút khi click vào nút ẩn
         holderDinTable.imgOrder.setVisibility(View.INVISIBLE);
         holderDinTable.imgPayment.setVisibility(View.INVISIBLE);
         holderDinTable.imgHideButton.setVisibility(View.INVISIBLE);
@@ -135,14 +129,14 @@ public class AdapterDinTables extends BaseAdapter implements View.OnClickListene
     @Override
     public void onClick(View view) {
         int id = view.getId();
-        // fix click show imageView on position has clicked
+        //fix click show imageView on position has clicked
         holderDinTable = (ViewHolderDinTable) ((View)view.getParent()).getTag();
-        int pos1 = (int) holderDinTable.imgTable.getTag();
-        int idTable = objects.get(pos1).getId();
+        int pos1 = (int) holderDinTable.imgTable.getTag();//lấy vị trí của bàn click
+        int idTable = objects.get(pos1).getId();//lấy id dựa theo vị trí  của bàn
 
         switch (id){
             case R.id.img_table:
-                int position = (int) view.getTag();
+                int position = (int)view.getTag();
                 objects.get(position).setChoose(true);
                 showButton();
                 break;

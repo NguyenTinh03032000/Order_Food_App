@@ -32,14 +32,15 @@ public class MainActivity extends AppCompatActivity {
         super.onCreate(savedInstanceState);
         setContentView(R.layout.activity_main);
         (MainActivity.this).getSupportActionBar().setTitle("Trang chủ");
-        gvDinTables = (GridView) findViewById(R.id.GvTable);
+
+        gvDinTables = findViewById(R.id.GvTable);
         dinTableDAO = new DinTableDAO(this);//các thao tác với table
         showListDinTable();
         registerForContextMenu(gvDinTables);
     }
     private void showListDinTable() {
         listDinTable = dinTableDAO.getAllList();//lấy ds table
-        adapter = new AdapterDinTables(MainActivity.this, R.layout.custom_layout_dintables,listDinTable);//có show button
+        adapter = new AdapterDinTables(MainActivity.this, R.layout.custom_layout_dintables,listDinTable);//đổ dl từng bàn lên gridview,có show button,thêm món,thanh toán
         gvDinTables.setAdapter(adapter);
         adapter.notifyDataSetChanged();
     }
@@ -62,12 +63,12 @@ public class MainActivity extends AppCompatActivity {
         int idTable = listDinTable.get(position).getId();
 
         switch (id){
-            case R.id.item_change:
+            case R.id.item_change: // sửa thông tin bàn
                 Intent intent = new Intent(MainActivity.this, UpdateDinTable.class);
                 intent.putExtra("T_idTable",idTable);
                 startActivityForResult(intent,REQUEST_CODE_UPDATE);
                 break;
-            case R.id.item_delete:
+            case R.id.item_delete: // xóa bàn
                 boolean rs = dinTableDAO.delete(idTable);
                 if(rs){
                     showListDinTable();
@@ -107,7 +108,7 @@ public class MainActivity extends AppCompatActivity {
     }
     public void onActivityResult(int requestCode, int resultCode, Intent data) {
         super.onActivityResult(requestCode, resultCode, data);
-        if(requestCode == REQUEST_CODE_INSERT){
+        if(requestCode == REQUEST_CODE_INSERT){ //kết quả thêm bàn
             if(resultCode == Activity.RESULT_OK){
                 Intent intent = data;
                 boolean rs = intent.getBooleanExtra("Result_insertTable",false);
@@ -119,7 +120,7 @@ public class MainActivity extends AppCompatActivity {
                 }
             }
         }
-        if(requestCode == REQUEST_CODE_UPDATE){
+        if(requestCode == REQUEST_CODE_UPDATE){  //kết quả sửa thông tin bàn
             if(resultCode == Activity.RESULT_OK){
                 Intent intent = data;
                 boolean rs = intent.getBooleanExtra("Result_updateTable",false);
